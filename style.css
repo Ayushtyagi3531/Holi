@@ -1,0 +1,206 @@
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FF69B4, #FFD700, #00BFFF, #32CD32);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Heading */
+.message {
+    font-size: 4rem;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 2s ease-in-out;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.splash-button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #fff;
+    color: #FF69B4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.splash-button:hover {
+    background-color: #FF69B4;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
+}
+
+/* Special Message */
+.special-message {
+    display: none; /* Hide the message initially */
+    font-size: 2rem;
+    color: #FFD700;
+    margin-top: 30px;
+    animation: slideIn 1s ease-out forwards;
+}
+
+/* Animations for the message */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide-in animation for special message */
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Color Splash (Spread colors like real Holi) */
+@keyframes splashAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Confetti (Particles) */
+@keyframes confetti {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Button and background animations */
+.animation-container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Random color splashes (spreading effect like real Holi) */
+.color-splash {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    animation: splashAnimation 2s ease-out forwards;
+    pointer-events: none;
+}
+
+.color-splash:nth-child(1) { background-color: rgba(255, 105, 180, 0.8); }
+.color-splash:nth-child(2) { background-color: rgba(255, 69, 0, 0.8); }
+.color-splash:nth-child(3) { background-color: rgba(0, 255, 255, 0.8); }
+.color-splash:nth-child(4) { background-color: rgba(255, 255, 0, 0.8); }
+.color-splash:nth-child(5) { background-color: rgba(0, 255, 0, 0.8); }
+
+/* Confetti effect */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF6347;
+    animation: confetti 3s ease-out forwards;
+    pointer-events: none;
+}
+/* Mobile Devices */
+@media (max-width: 600px) {
+    .message {
+        font-size: 2.5rem;
+    }
+
+    .splash-button {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+    }
+
+    .special-message {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust splash size */
+    .color-splash {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .message {
+        font-size: 3rem;
+    }
+
+    .splash-button {
+        font-size: 1.3rem;
+        padding: 14px 28px;
+    }
+
+    .special-message {
+        font-size: 1.8rem;
+    }
+
+    /* Adjust splash size */
+    .color-splash {
+        width: 175px;
+        height: 175px;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+    .message {
+        font-size: 4rem;
+    }
+
+    .splash-button {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+    }
+
+    .special-message {
+        font-size: 2rem;
+    }
+
+    /* Adjust splash size */
+    .color-splash {
+        width: 200px;
+        height: 200px;
+    }
+}
